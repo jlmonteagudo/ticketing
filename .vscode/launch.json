@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Default API",
+      "program": "${workspaceFolder}/apps/api/src/main.ts",
+      "preLaunchTask": "tsc: watch - apps/api/tsconfig.app.json",
+      "outFiles": ["${workspaceFolder}/dist/apps/api/**/*.js"],
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Auth API",
+      "program": "${workspaceFolder}/apps/backend/auth/src/main.ts",
+      "preLaunchTask": "tsc: watch - apps/backend/auth/tsconfig.app.json",
+      "outFiles": ["${workspaceFolder}/dist/apps/backend/auth/**/*.js"],
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**/*.js"
+      ]
+    }
+  ]
+}
+

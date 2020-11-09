@@ -188,6 +188,56 @@
           }
         }
       }
+    },
+    "backend-auth": {
+      "root": "apps/backend/auth",
+      "sourceRoot": "apps/backend/auth/src",
+      "projectType": "application",
+      "prefix": "backend-auth",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/backend/auth",
+            "main": "apps/backend/auth/src/main.ts",
+            "tsConfig": "apps/backend/auth/tsconfig.app.json",
+            "assets": ["apps/backend/auth/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend/auth/src/environments/environment.ts",
+                  "with": "apps/backend/auth/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "backend-auth:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/backend/auth/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/backend/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
