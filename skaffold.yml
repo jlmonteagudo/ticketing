@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta9
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  artifacts:
+    - image: jlmonteagudo/auth
+      context: ./dist/apps/backend/auth
+      docker:
+        dockerfile: ./infra/docker/auth.Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .

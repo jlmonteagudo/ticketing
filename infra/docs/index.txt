@@ -1,0 +1,5 @@
+- Build auth image: docker build -f infra/docker/auth.Dockerfile -t jlmonteagudo/auth .
+- Upload auth image: docker push jlmonteagudo/auth
+- Deploy image to Kubernetes: kubectl apply -f infra/k8s/auth-depl.yml
+- Update in Kubernetes the previous deployment: kubectl rollout restart deployment auth-depl
+
