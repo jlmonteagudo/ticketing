@@ -14,7 +14,7 @@ async function bootstrap() {
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3000;
   await app.listen(port, () => {
-    Logger.log('Version 15');
+    Logger.log('Version 1');
     Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
   });
 }

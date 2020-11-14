@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: auth
-        image: jlmonteagudo/auth:latest
-        imagePullPolicy: Always
+        image: jlmonteagudo/auth
+        imagePullPolicy: Never
         resources:
           limits:
             memory: "128Mi"
@@ -26,13 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:  auth-srv
+  name: auth-srv
 spec: 
   type: ClusterIP
   selector:
-    app:  auth
+    app: auth
   ports:
-  - name:  auth
+  - name: auth
     protocol: TCP
-    port:  3000
-    targetPort:  3000
+    port: 3000
+    targetPort: 3000

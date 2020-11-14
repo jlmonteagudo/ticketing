@@ -7,3 +7,4 @@ RUN npm install
 COPY dist/apps/backend/auth .
 
 CMD [ "node", "main.js" ]
+# CMD [ "npm" "run" "nx" "serve" "backend-auth" ]

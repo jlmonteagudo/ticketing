@@ -7,10 +7,10 @@ deploy:
 build:
   artifacts:
     - image: jlmonteagudo/auth
-      context: ./dist/apps/backend/auth
+      context: .
       docker:
         dockerfile: ./infra/docker/auth.Dockerfile
       sync:
         manual:
-          - src: '*.js'
+          - src: './apps/backend/auth/src/**/*.ts'
             dest: .
